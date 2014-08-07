@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('angularJsDemoCodeApp', [
+var myApp = angular.module('angularJsDemoCodeApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -17,18 +16,22 @@ angular
     'ngSanitize',
     'ngTouch',
     'LocalStorageModule'
-  ])
-  .config(function ($routeProvider) {
+  ]);
+
+myApp.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
+        title: 'Home Page',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
       .when('/about', {
+        title: 'About Page',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
       .when('/todo', {
+        title: 'List Page',
         templateUrl: 'views/todo.html',
         controller: 'TodoCtrl'
       })
@@ -36,3 +39,9 @@ angular
         redirectTo: '/'
       });
   });
+
+myApp.run(['$location', '$rootScope', function($location, $rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
+    });
+}]);
