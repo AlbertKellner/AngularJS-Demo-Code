@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name angularJsDemoCodeApp.controller:MainCtrl
+ * @name angularJsDemoCodeApp.controller:TodoCtrl
  * @description
- * # MainCtrl
+ * # TodoCtrl
  * Controller of the angularJsDemoCodeApp
  */
 angular.module('angularJsDemoCodeApp')
@@ -31,7 +31,9 @@ angular.module('angularJsDemoCodeApp')
       var oldTodos = $scope.todos;
       $scope.todos = [];
       angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) {$scope.todos.push(todo);}
+        if (!todo.done) { // please add this "{", or jsLint will report error in grunt
+        	$scope.todos.push(todo);
+        }
       });
     };
   });
