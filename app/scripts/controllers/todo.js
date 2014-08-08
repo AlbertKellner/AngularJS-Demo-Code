@@ -24,6 +24,10 @@ angular.module('angularJsDemoCodeApp')
       $scope.todoText = ''; 
     };
  
+		$scope.update = function(index) {
+			//console.log($scope.todos[index]);	
+			$scope.todos.$save(index);
+		}
     $scope.remaining = function() {
       var count = 0;
       angular.forEach($scope.todos, function(todo) {
