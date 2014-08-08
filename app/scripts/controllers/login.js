@@ -11,10 +11,9 @@ angular.module('angularJsDemoCodeApp')
   .controller('LoginCtrl', function ($scope, Data) {
 		console.log(Data.token);
 		Data.token = 'I am token';
-		console.log(Data.token);
-		$scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+		
+		$scope.login = function() {
+			console.log($scope.email);
+			console.log($scope.password);
+		}
   });
