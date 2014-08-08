@@ -15,5 +15,5 @@ angular.module('angularJsDemoCodeApp')
 		$scope.login = function() {
 			console.log($scope.email);
 			console.log($scope.password);
-		}
+		};
   });

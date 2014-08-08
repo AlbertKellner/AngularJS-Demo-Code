@@ -10,7 +10,7 @@
 angular.module('angularJsDemoCodeApp')
   .controller('TodoCtrl', function ($scope, $firebase) {
 
-		var ref = new Firebase("https://todoapps.firebaseio.com/");
+		var ref = new Firebase('https://todoapps.firebaseio.com/');
 		
 		$scope.todos = $firebase(ref).$asArray();
 		
@@ -27,7 +27,8 @@ angular.module('angularJsDemoCodeApp')
 		$scope.update = function(index) {
 			//console.log($scope.todos[index]);	
 			$scope.todos.$save(index);
-		}
+		};
+		
     $scope.remaining = function() {
       var count = 0;
       angular.forEach($scope.todos, function(todo) {
