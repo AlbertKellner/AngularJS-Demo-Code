@@ -35,6 +35,11 @@ myApp.config(function ($routeProvider) {
         templateUrl: 'views/todo.html',
         controller: 'TodoCtrl'
       })
+			.when('/login', {
+        title: 'Login Page',
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -46,3 +51,8 @@ myApp.run(['$location', '$rootScope', function($location, $rootScope) {
         $rootScope.title = current.$$route.title;
     });
 }]);
+
+myApp.factory('Token', function() {
+		
+    return ;
+})
