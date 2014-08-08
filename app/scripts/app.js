@@ -47,12 +47,11 @@ myApp.config(function ($routeProvider) {
 
 // change Page Title based on the routers
 myApp.run(['$location', '$rootScope', function($location, $rootScope) {
-    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current) {
         $rootScope.title = current.$$route.title;
     });
 }]);
 
-myApp.factory('Token', function() {
-		
-    return ;
-})
+myApp.factory('Data', function() {
+    return {token:'This is a token'};
+});

@@ -2,17 +2,17 @@
 
 /**
  * @ngdoc function
- * @name angularJsDemoCodeApp.controller:AboutCtrl
+ * @name angularJsDemoCodeApp.controller:LoginCtrl
  * @description
- * # AboutCtrl
+ * # LoginCtrl
  * Controller of the angularJsDemoCodeApp
  */
 angular.module('angularJsDemoCodeApp')
-  .controller('AboutCtrl', function ($scope, Data, localStorageService) {
+  .controller('LoginCtrl', function ($scope, Data) {
 		console.log(Data.token);
-    console.log(localStorageService.get('key'));
-		
-    $scope.awesomeThings = [
+		Data.token = 'I am token';
+		console.log(Data.token);
+		$scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
