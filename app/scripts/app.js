@@ -15,7 +15,8 @@ var myApp = angular.module('angularJsDemoCodeApp', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'LocalStorageModule'
+    'LocalStorageModule',
+		'firebase'
   ]);
 
 myApp.config(function ($routeProvider) {

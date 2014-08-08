@@ -8,14 +8,19 @@
  * Controller of the angularJsDemoCodeApp
  */
 angular.module('angularJsDemoCodeApp')
-  .controller('TodoCtrl', function ($scope) {
+  .controller('TodoCtrl', function ($scope, $firebase) {
 
+		var ref = new Firebase("https://todoapps.firebaseio.com/");
+		
+		$scope.todos = $firebase(ref).$asArray();
+		
+		/*
     $scope.todos = [
       {text:'learn angular', due:'2014-08-12', done:true},
       {text:'build an angular app', due:'2014-08-12', done:false}];
- 
+ 		*/
     $scope.addTodo = function() {
-      $scope.todos.push({text:$scope.todoText, done:false});
+      $scope.todos.$add({text:$scope.todoText,  due:'2014-08-12', done:false});
       $scope.todoText = ''; 
     };
  
