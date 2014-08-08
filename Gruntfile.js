@@ -355,7 +355,18 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // deploy to GitHub pages
+    'gh-pages': {
+      options: {
+        base: 'dist',
+        branch: 'gh-pages',
+        repo: 'https://github.com/zhouhao/TodoApp-AngularJS-Firebase.git'
+      },
+      src: '**/*'
     }
+
   });
 
 
@@ -403,10 +414,16 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
-
+  
+  grunt.registerTask('deploy', [
+    'gh-pages'
+  ]);
+  
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
     'build'
   ]);
+
+
 };
