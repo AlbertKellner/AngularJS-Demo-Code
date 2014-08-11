@@ -10,17 +10,13 @@
 angular.module('angularJsDemoCodeApp')
   .controller('TodoCtrl', function ($scope, $firebase) {
 
-		var ref = new Firebase('https://todoapps.firebaseio.com/');
+    var ref = new Firebase('https://todoapps.firebaseio.com/');
 		
-		$scope.todos = $firebase(ref).$asArray();
-		
-		/*
-    $scope.todos = [
-      {text:'learn angular', due:'2014-08-12', done:true},
-      {text:'build an angular app', due:'2014-08-12', done:false}];
- 		*/
+    $scope.todos = $firebase(ref).$asArray();
+
     $scope.addTodo = function() {
-      $scope.todos.$add({text:$scope.todoText,  due:'2014-08-12', done:false});
+			var crtTime = moment().format('YYYY-MM-DD HH:mm:ss');
+      $scope.todos.$add({text:$scope.todoText,  due: crtTime, add: crtTime, done:false});
       $scope.todoText = ''; 
     };
  
